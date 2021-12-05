@@ -7,9 +7,9 @@ import ItemDetails from './ItemDetails';
 const Main = () => {
   return (
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/products" component={Products} />
-        <Route exact path="/products/:id" component={ItemDetails} />
+        <Route exact path="/shopping-cart2/" component={Home} />
+        <Route exact path="/shopping-cart2/products" component={Products} />
+        <Route exact path="/shopping-cart2/products/:id" component={ItemDetails} />
       </Switch>
   );
 };
