@@ -48,7 +48,7 @@ useEffect(() => {
         {pokemons.map((item, i) => {
             return (
               <div className="pokemon-wrapper">
-                <Link to={`/products/${item.id}`}> 
+                <Link to={`/shopping-cart2/products/${item.id}`}> 
                     <div className="pokemon-item-wrapper" key={item.id}>
                         <img className="poke-image" src={item.image} alt="poke"/>
                         <li>{capitalizeFirstLetter(item.name)}</li>

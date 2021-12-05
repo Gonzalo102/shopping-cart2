@@ -17,10 +17,10 @@ const Header = ({toggleCart}) => {
     <nav className="nav-bar-wrapper">
         <h3>Pokemon Posters</h3>
         <ul className="nav-bar">
-            <Link to="/">
+            <Link to="/shopping-cart2/">
                 <li>Home</li>
             </Link>
-            <Link to="/products">
+            <Link to="/shopping-cart2/products">
                 <li>Products</li>
             </Link>
                 <div className="logo-container">
