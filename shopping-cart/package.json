@@ -1,6 +1,7 @@
 {
   "name": "shopping-cart",
   "version": "0.1.0",
+  "homepage": "http://Gonzalo102.github.io/shopping-cart2",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
@@ -18,6 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
