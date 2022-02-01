@@ -49,7 +49,7 @@ const ItemDetails = ({ match }) => {
 
   const addToCart = () => {
     const index = pokemons.findIndex(
-      (product) => product.id == match.params.id
+      (product) => product.id === match.params.id
     );
     dispatch(addProductToCart(pokemons[index]));
   };

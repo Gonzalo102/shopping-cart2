@@ -165,7 +165,8 @@ h4 {
   right: 0;
   background-color: whitesmoke;
   width: 30%;
-  min-height: 600px;
+  height: calc(100vh - 96px);
+  max-height: 600px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -282,4 +283,13 @@ h4 {
   width: 80%;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+#close-modal-button {
+  background-color: white;
+  border-radius: 70%;
+}
+
+#close-modal-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }

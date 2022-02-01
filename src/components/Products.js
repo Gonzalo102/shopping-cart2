@@ -43,9 +43,9 @@ const Products = () => {
     <ul className="pokemon-container">
       {pokemons.map((item, i) => {
         return (
-          <div className="pokemon-wrapper">
+          <div key={item.id} className="pokemon-wrapper">
             <Link to={`/shopping-cart2/products/${item.id}`}>
-              <div className="pokemon-item-wrapper" key={item.id}>
+              <div className="pokemon-item-wrapper">
                 <img className="poke-image" src={item.image} alt="poke" />
                 <li>{capitalizeFirstLetter(item.name)}</li>
                 <li>$ {item.price}</li>

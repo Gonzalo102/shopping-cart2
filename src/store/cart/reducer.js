@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addProductToCart } from "./action";
+import { addProductToCart, resetProductFromCart } from "./action";
 import { removeProductFromCart } from "./action";
 import { increaseQuantity } from "./action";
 
@@ -46,6 +46,9 @@ export const cartReducer = createReducer(
             return product.pokemon.id !== action.payload.pokemon.id;
           });
         }
+      })
+      .addCase(resetProductFromCart, (state, action) => {
+        state.products = [];
       });
   }
 );
