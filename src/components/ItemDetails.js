@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { addProductToCart } from "../store/cart/action";
 import { useDispatch, useSelector } from "react-redux";
 import capitalizeFirstLetter from "../utilities/CapitalizeFirstLetter";
@@ -49,7 +49,7 @@ const ItemDetails = ({ match }) => {
 
   const addToCart = () => {
     const index = pokemons.findIndex(
-      (product) => product.id === match.params.id
+      (product) => product.id === parseInt(match.params.id)
     );
     dispatch(addProductToCart(pokemons[index]));
   };
@@ -66,7 +66,7 @@ const ItemDetails = ({ match }) => {
   }, [item]);
 
   return (
-    <>
+    <Fragment key={item.id}>
       <div className="pokemon-detail">
         <h2>Name: {capitalizeFirstLetter(item.name)}</h2>
         <img
@@ -83,14 +83,14 @@ const ItemDetails = ({ match }) => {
       <div className="info-container">
         <h3>Abilities: </h3>
         <ul>
-          {item.abilities.map((item) => {
-            return <li>{capitalizeFirstLetter(item.ability.name)}</li>;
+          {item.abilities.map((item, i) => {
+            return <li key={i}>{capitalizeFirstLetter(item.ability.name)}</li>;
           })}
         </ul>
         <h3>Moves: </h3>
         <p>{allMoves}</p>
       </div>
-    </>
+    </Fragment>
   );
 };
 

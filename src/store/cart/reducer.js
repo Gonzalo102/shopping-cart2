@@ -10,6 +10,7 @@ export const cartReducer = createReducer(
   (builder) => {
     builder
       .addCase(addProductToCart, (state, action) => {
+        //if the pokemon is not on the cart, add it.
         if (
           state.products.findIndex(
             (product) => product.pokemon.id === action.payload.id
@@ -19,6 +20,7 @@ export const cartReducer = createReducer(
             quantity: 1,
             pokemon: action.payload,
           });
+          //else, increment its quantity by 1
         } else {
           state.products[
             state.products.findIndex(
@@ -27,6 +29,7 @@ export const cartReducer = createReducer(
           ].quantity++;
         }
       })
+      //increase quantity by 1
       .addCase(increaseQuantity, (state, action) => {
         state.products[
           state.products.findIndex(
@@ -40,11 +43,11 @@ export const cartReducer = createReducer(
             state.products.findIndex(
               (product) => product.pokemon.id === action.payload.pokemon.id
             )
-          ].quantity--;
+          ].quantity--; //if quantity es higher than one, decrement by 1.
         } else {
           state.products = state.products.filter((product) => {
             return product.pokemon.id !== action.payload.pokemon.id;
-          });
+          }); //if quantity is 1, we remove it from the cart
         }
       })
       .addCase(resetProductFromCart, (state, action) => {
