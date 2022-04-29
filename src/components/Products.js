@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addProductToCart } from "../store/cart/action";
@@ -10,9 +10,9 @@ const Products = () => {
   const pokemons = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
-  const loadProducts = async () => {
+  const loadProducts = useCallback(async () => {
     dispatch(setProducts(await fetchPokemons(24)));
-  };
+  }, [dispatch]);
 
   const fetchPokemons = async (amount) => {
     const pokemonsArray = [];
@@ -37,7 +37,7 @@ const Products = () => {
 
   useEffect(() => {
     loadProducts();
-  }, []);
+  }, [loadProducts]);
 
   return (
     <ul className="pokemon-container">

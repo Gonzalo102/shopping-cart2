@@ -1,7 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { addProductToCart, resetProductFromCart } from "./action";
-import { removeProductFromCart } from "./action";
-import { increaseQuantity } from "./action";
+import {
+  addProductToCart,
+  resetProductFromCart,
+  removeProductFromCart,
+  increaseQuantity,
+} from "./action";
 
 export const cartReducer = createReducer(
   {

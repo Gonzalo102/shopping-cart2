@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useCallback } from "react";
 import { addProductToCart } from "../store/cart/action";
 import { useDispatch, useSelector } from "react-redux";
 import capitalizeFirstLetter from "../utilities/CapitalizeFirstLetter";
@@ -26,14 +26,14 @@ const ItemDetails = ({ match }) => {
 
   const [allMoves, setAllMoves] = useState("");
 
-  const fetchPokemon = async () => {
+  const fetchPokemon = useCallback(async () => {
     const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${match.params.id}`;
     const response = await fetch(pokemonUrl);
     const pokemon = await response.json();
     setItem(pokemon);
-  };
+  }, [match.params.id]);
 
-  const getAllMoves = () => {
+  const getAllMoves = useCallback(() => {
     let moves = "";
     item.moves.forEach((it, i) => {
       if (moves === "") {
@@ -45,7 +45,7 @@ const ItemDetails = ({ match }) => {
       }
     });
     setAllMoves(moves);
-  };
+  }, [item.moves]);
 
   const addToCart = () => {
     const index = pokemons.findIndex(
@@ -59,11 +59,11 @@ const ItemDetails = ({ match }) => {
       await fetchPokemon();
     };
     loadPokemon();
-  }, []);
+  }, [fetchPokemon]);
 
   useEffect(() => {
     getAllMoves();
-  }, [item]);
+  }, [getAllMoves]);
 
   return (
     <Fragment key={item.id}>

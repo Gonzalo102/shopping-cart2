@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from "react";
-import { useSelector } from "react-redux";
-import { increaseQuantity, resetProductFromCart } from "../store/cart/action";
-import { removeProductFromCart } from "../store/cart/action";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  increaseQuantity,
+  resetProductFromCart,
+  removeProductFromCart,
+} from "../store/cart/action";
 import capitalizeFirstLetter from "../utilities/CapitalizeFirstLetter";
 import Modal from "./Modal";
 
