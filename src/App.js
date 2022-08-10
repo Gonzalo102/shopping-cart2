@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Main from "./components/Main";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import "./style/style.css";
 import Cart from "./components/Cart";

@@ -1,7 +1,7 @@
 {
   "name": "shopping-cart",
   "version": "0.1.0",
-  "homepage": "http://Gonzalo102.github.io/shopping-cart2",
+  "homepage": "http://Gonzalo102.github.io/#/shopping-cart2",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
