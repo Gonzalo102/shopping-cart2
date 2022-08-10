@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename="shopping-cart2">
         <Header toggleCart={toggleCart} />
         <Main />
       </Router>
